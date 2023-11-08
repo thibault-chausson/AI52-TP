@@ -158,7 +158,7 @@ def optimize(poids, valeur, population, pop_size, nbr_generations, capacite, cho
         population[0:parents.shape[0], :] = parents
         population[parents.shape[0]:, :] = mutants
 
-    print(f'Voici la dernière génération de la population: \n{population}\n')
+    # print(f'Voici la dernière génération de la population: \n{population}\n')
     fitness_derniere_generation = cal_fitness(poids, valeur, population, capacite, choix)
     print(f'Fitness de la dernière génération: \n{fitness_derniere_generation}\n')
     max_fitness = np.where(fitness_derniere_generation == np.max(fitness_derniere_generation))
@@ -169,14 +169,14 @@ def optimize(poids, valeur, population, pop_size, nbr_generations, capacite, cho
 
 def affichage(nbr_generations, capacite_max, poids, valeur, ID_objets, population_initiale, pop_size, choix):
     if choix == "0":  # On corrige
-        print("On corrige")
+        # print("On corrige")
         population_initiale = correction_initiale(population_initiale, poids, capacite_max, choix)
 
     # affichage des objets: Une instance aléatoire du problème Knapsack
-    print('La liste des objet est la suivante :')
-    print('ID_objet   Poids   Valeur')
-    for i in range(ID_objets.shape[0]):
-        print(f'{ID_objets[i]} \t {poids[i]} \t {valeur[i]}')
+    # print('La liste des objet est la suivante :')
+    # print('ID_objet   Poids   Valeur')
+    # for i in range(ID_objets.shape[0]):
+    #    print(f'{ID_objets[i]} \t {poids[i]} \t {valeur[i]}')
     print()
 
     # lancement de l'algorithme génétique
@@ -190,7 +190,7 @@ def affichage(nbr_generations, capacite_max, poids, valeur, ID_objets, populatio
 
     print(np.asarray(historique_fitness).shape)
     print(f'Avec une valeur de {np.amax(historique_fitness)} € et un poids de {np.sum(sol_opt * poids)} kg')
-    print('Les objets qui maximisent la valeur contenue dans le sac sans le dÃ©chirer :')
+    print('Les objets qui maximisent la valeur contenue dans le sac sans le déchirer :')
     objets_selectionnes = ID_objets * sol_opt
     for i in range(objets_selectionnes.shape[1]):
         if ((sol_opt[0][i] == 1)):

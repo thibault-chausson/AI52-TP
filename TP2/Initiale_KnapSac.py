@@ -15,7 +15,7 @@ def fct_population_initiale(solutions_par_pop, nombre_objets):
     population_initiale = population_initiale.astype(int)
 
     print(f'Taille de la population: {pop_size}')
-    print(f'Population Initiale: \n{population_initiale}')
+    # print(f'Population Initiale: \n{population_initiale}')
 
     return ID_objets, population_initiale, pop_size
 
@@ -54,9 +54,7 @@ def croisement(parents, nbr_enfants):
     taux_de_croisement = 0.8
     i = 0
 
-    while (i < nbr_enfants):  # parents.shape[0]
-        indice_parent1 = i % parents.shape[0]
-        indice_parent2 = (i + 1) % parents.shape[0]
+    while i < nbr_enfants:  # parents.shape[0]
         x = rd.random()
         if x > taux_de_croisement:  # probabilité de parents stériles
             continue
@@ -71,7 +69,7 @@ def croisement(parents, nbr_enfants):
 
 # La mutation consiste à inverser le bit
 def mutation(enfants):
-    mutants = np.empty((enfants.shape))
+    mutants = np.empty(enfants.shape)
     taux_mutation = 0.5
     for i in range(mutants.shape[0]):
         random_valeur = rd.random()
@@ -122,10 +120,10 @@ def affichage(nbr_generations, capacite_max, nombre_objets, poids_min, poids_max
                                    size=nombre_objets)  # Valeurs des objets générées aléatoirement entre 50€ et 350€
 
     # affichage des objets: Une instance aléatoire du problème Knapsack
-    print('La liste des objet est la suivante :')
-    print('ID_objet   Poids   Valeur')
-    for i in range(ID_objets.shape[0]):
-        print(f'{ID_objets[i]} \t {poids[i]} \t {valeur[i]}')
+    # print('La liste des objet est la suivante :')
+    # print('ID_objet   Poids   Valeur')
+    # for i in range(ID_objets.shape[0]):
+    #    print(f'{ID_objets[i]} \t {poids[i]} \t {valeur[i]}')
     print()
 
     # lancement de l'algorithme génétique
@@ -138,7 +136,7 @@ def affichage(nbr_generations, capacite_max, nombre_objets, poids_min, poids_max
 
     print(np.asarray(historique_fitness).shape)
     print(f'Avec une valeur de {np.amax(historique_fitness)} € et un poids de {np.sum(sol_opt * poids)} kg')
-    print('Les objets qui maximisent la valeur contenue dans le sac sans le dÃ©chirer :')
+    print('Les objets qui maximisent la valeur contenue dans le sac sans le déchirer :')
     objets_selectionnes = ID_objets * sol_opt
     for i in range(objets_selectionnes.shape[1]):
         if ((sol_opt[0][i] == 1)):
