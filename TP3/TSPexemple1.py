@@ -76,4 +76,4 @@ def recuit_simule(nombre_de_ville, distances, T, facteur, tour):
     return min_sol, distance_totale
 
 
-print(recuit_simule(NOMBRE_DE_VILLES, generer_ville(NOMBRE_DE_VILLES, MAX_DISTANCE), TEMPERATURE, FACTEUR, TOUR))
+# print(recuit_simule(NOMBRE_DE_VILLES, generer_ville(NOMBRE_DE_VILLES, MAX_DISTANCE), TEMPERATURE, FACTEUR, TOUR))
