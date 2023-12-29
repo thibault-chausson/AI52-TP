@@ -2,7 +2,6 @@
 
 import numpy as np
 import math
-import matplotlib.pyplot as plt
 
 
 # Fonction pour déterminer le gradient de la fonction

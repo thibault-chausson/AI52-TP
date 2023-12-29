@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Éditeur de Spyder
-
-Ceci est un script temporaire.
-"""
 
 # Résolution du problème du voyageur de commerce ou TCS à l'aide du recuit simulé
 # import de la librairie
